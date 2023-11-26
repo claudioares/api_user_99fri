@@ -9,7 +9,7 @@ type BodyRequire = {
 }
 
 
-userLogin.get('/login', async (req, res)=>{
+userLogin.post('/login', async (req, res)=>{
     try {
         const {email, password}:BodyRequire = req.body as BodyRequire;
 

@@ -1,4 +1,4 @@
-# api_user_99fri
+# api_user_controll
 
 # Documentação da API
 
@@ -6,7 +6,7 @@
 
 Esta documentação descreve as operações disponíveis na API para gerenciamento de usuários. A API oferece funcionalidades para cadastrar usuários, fazer login e editar informações do usuário.
 
-## Base URL
+- [ ] Base URL
 
 http://localhost:3000/
 
@@ -41,8 +41,8 @@ Esta rota permite cadastrar um novo usuário na aplicação.
 
 ```json
 {
-  "username": "novousuario",
-  "email": "novoemail",
+  "username": "Novo Usuario",
+  "email": "novo.usuario@email.com",
   "password": "senhadousuario"
 }
 ```
@@ -51,8 +51,14 @@ Esta rota permite cadastrar um novo usuário na aplicação.
 
 ```json
 {
-  "message": "Usuário cadastrado com sucesso!",
-  "userId": 123
+  "messege": "User successfully registered!",
+  "userDetail": {
+    "id": "6c2a61da-c36f-465b-a61f-66b11c53f54e",
+    "name": "Novo Usuario",
+    "email": "novo.usuarion@email.com",
+    "createdAt": "2023-11-26T18:48:31.611Z",
+    "updateAt": "2023-11-26T18:48:31.611Z"
+  }
 }
 ```
 
@@ -71,7 +77,7 @@ Esta rota permite que um usuário faça login na aplicação.
 - **Nome**: `username`
   - **Tipo**: String
   - **Descrição**: Nome de usuário do usuário existente.
-- **Nome**: `password`
+- **Password**: `password`
   - **Tipo**: String
   - **Descrição**: Senha do usuário existente.
 
@@ -79,7 +85,7 @@ Esta rota permite que um usuário faça login na aplicação.
 
 ```json
 {
-  "username": "usuariologin",
+  "email": "novo.usuario@email.com",
   "password": "senhalogin"
 }
 ```
@@ -88,9 +94,14 @@ Esta rota permite que um usuário faça login na aplicação.
 
 ```json
 {
-  "message": "Login bem-sucedido",
-  "userId": 456,
-  "loginTime": "2023-11-26T12:34:56Z"
+  "messege": {
+    "id": "6c2a61da-c36f-465b-a61f-66b11c53f54e",
+    "name": "Novo Usuario",
+    "email": "novo.usuario@email.com",
+    "createdAt": "2023-11-26T18:48:31.611Z",
+    "updateAt": "2023-11-26T18:48:31.611Z",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZjMmE2MWRhLWMzNmYtNDY1Yi1hN"
+  }
 }
 ```
 
@@ -109,7 +120,7 @@ Esta rota permite que um usuário atualize suas informações.
 - **Nome**: `userName`
   - **Tipo**: String
   - **Descrição**: Nome do usuário a ser atualizado.
-- **Nome**: `newPassword`
+- **Password**: `newPassword`
   - **Tipo**: String
   - **Descrição**: Nova senha do usuário.
 
@@ -118,7 +129,7 @@ Esta rota permite que um usuário atualize suas informações.
 ```json
 {
   "name": "novo nome do usuario",
-  "newPassword": "novasenha"
+  "password": "novasenha"
 }
 ```
 
@@ -128,15 +139,38 @@ exemplo : Authorization: uHswkelçg1234
 
 ## Atividades do Usuário
 
-A API também fornece informações sobre as atividades do usuário, incluindo a hora de login, criação do usuário e a última edição dos dados.
+A API também fornece informações sobre as atividades do usuário, incluindo a hora de login, criação do usuário e suas tentativas de login
+
+### Rota
+
+GET /user/history
 
 ### Exemplo de Resposta
 
 ```json
 {
-  "userId": 456,
-  "registrationTime": "2023-11-26T10:00:00Z",
-  "lastLoginTime": "2023-11-26T12:34:56Z",
-  "lastUpdateTime": "2023-11-26T13:45:00Z"
+	"messege": [
+		{
+			"id": "136c77d4-938f-4915-b341-94515e44c692",
+			"userName": "Novo nome do usuario",
+			"timestamp": "2023-11-26T18:48:31.760Z",
+			"action": "Created new user",
+			"userId": "6c2a61da-c36f-465b-a61f-66b11c53f54e"
+		},
+		{
+			"id": "598a10b6-3ffe-4c16-8aff-e0d00892b27c",
+			"userName": "Tovo nome do usuario",
+			"timestamp": "2023-11-26T18:51:44.183Z",
+			"action": "Created new login",
+			"userId": "6c2a61da-c36f-465b-a61f-66b11c53f54e"
+		},
+		{
+			"id": "f37563e6-649b-41af-9ea6-d539ddd80ea1",
+			"userName": "Tovo nome do usuario"",
+			"timestamp": "2023-11-26T19:53:37.233Z",
+			"action": "Created new login",
+			"userId": "6c2a61da-c36f-465b-a61f-66b11c53f54e"
+		}
+	    ]
 }
 ```

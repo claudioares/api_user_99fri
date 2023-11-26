@@ -5,12 +5,14 @@ export const userUpdate = Router();
 
 userUpdate.patch("/update", async (req, res)=>{
 
+
     try {
         const {name, password} = req.body;
         const { authorization } = req.headers;
-
+        
         const userUserCase = new UserUseCase();
-        const resultUseUseCase = await userUserCase.update({name, password, hash:authorization})
+        const resultUseUseCase = await userUserCase.update({name, password, token:authorization})
+
 
 
         return res.json(resultUseUseCase)

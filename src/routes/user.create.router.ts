@@ -15,7 +15,10 @@ userCreate.post('/create', async (req, res)=>{
 
         const {password:_, ...userDetail}:ICreateUser = result as ICreateUser;
 
-        return res.status(201).json({messege: userDetail})
+        return res.status(201).json({
+            messege: "User successfully registered!",
+            userDetail
+        })
     } catch (error) {
         console.error('Error during process:', error);
         return res.status(500).json({ error: "Error during process!"});
