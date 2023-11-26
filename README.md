@@ -8,12 +8,12 @@ Esta documentação descreve as operações disponíveis na API para gerenciamen
 
 ## Tecnologias usadas
 
-- typescript
-- nodejs
-- express
-- prisma
-- bcrypt
-- jsonwebtoken
+- [ ] typescript
+- [ ] nodejs
+- [ ] express
+- [ ] prisma
+- [ ] bcrypt
+- [ ] jsonwebtoken
 
 ## Cadastro de Usuário
 
