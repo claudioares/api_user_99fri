@@ -6,11 +6,20 @@
 
 Esta documentação descreve as operações disponíveis na API para gerenciamento de usuários. A API oferece funcionalidades para cadastrar usuários, fazer login e editar informações do usuário.
 
-- [ ] Base URL
+## Tecnologias usadas
 
-http://localhost:3000/
+- typescript
+- nodejs
+- express
+- prisma
+- bcrypt
+- jsonwebtoken
 
 ## Cadastro de Usuário
+
+Base URL
+
+http://localhost:3000/
 
 ### Rota
 
